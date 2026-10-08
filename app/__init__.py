@@ -1,0 +1,1 @@
+"""Kinopoisk Telegram inline bot."""

@@ -10,19 +10,17 @@ logger = logging.getLogger(__name__)
 
 
 @router.error()
-async def global_error_handler(event: ErrorEvent, settings: Settings) -> bool:
+async def global_error_handler(
+    event: ErrorEvent,
+    settings: Settings,
+) -> bool:
     exception = event.exception
     logger.exception("Unhandled bot error", exc_info=exception)
 
     text = (
-        "🚨 <b>BOT XATOLIGI</b>
-
-"
-        f"<b>Xato:</b> <code>{type(exception).__name__}</code>
-"
-        f"<b>Izoh:</b> <code>{str(exception)[:1200]}</code>
-
-"
+        "🚨 <b>BOT XATOLIGI</b>\n\n"
+        f"<b>Xato:</b> <code>{type(exception).__name__}</code>\n"
+        f"<b>Izoh:</b> <code>{str(exception)[:1200]}</code>\n\n"
         f"<b>Update:</b> <code>{type(event.update).__name__}</code>"
     )
 
